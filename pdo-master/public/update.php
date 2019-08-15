@@ -28,9 +28,9 @@ try {
     <thead>
         <tr>
             <th>#</th>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>client Address</th>
+            <th>Campaign Name</th>
+            <th>Car Model</th>
+            <th>Client</th>
             <th>Age</th>
             <th>Location</th>
             <th>Date</th>

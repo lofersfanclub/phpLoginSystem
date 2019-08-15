@@ -47,11 +47,11 @@ if (isset($_POST['submit'])) {
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="campaign_name">First Name</label>
+    <label for="campaign_name">Campaign Name</label>
     <input type="text" name="campaign_name" id="campaign_name">
-    <label for="car_model">Last Name</label>
+    <label for="car_model">Car Model</label>
     <input type="text" name="car_model" id="car_model">
-    <label for="client">client Address</label>
+    <label for="client">Client</label>
     <input type="text" name="client" id="client">
     <label for="age">Age</label>
     <input type="text" name="age" id="age">
