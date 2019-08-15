@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
   
     $id = $_POST["submit"];
 
-    $sql = "DELETE FROM users WHERE id = :id";
+    $sql = "DELETE FROM campaign WHERE id = :id";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM users";
+  $sql = "SELECT * FROM campaign";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
@@ -44,7 +44,7 @@ try {
 ?>
 <?php require "templates/header.php"; ?>
         
-<h2>Delete users</h2>
+<h2>Delete campaign</h2>
 
 <?php if ($success) echo $success; ?>
 
@@ -56,7 +56,7 @@ try {
         <th>#</th>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Email Address</th>
+        <th>client Address</th>
         <th>Age</th>
         <th>Location</th>
         <th>Date</th>
@@ -67,9 +67,9 @@ try {
     <?php foreach ($result as $row) : ?>
       <tr>
         <td><?php echo escape($row["id"]); ?></td>
-        <td><?php echo escape($row["firstname"]); ?></td>
-        <td><?php echo escape($row["lastname"]); ?></td>
-        <td><?php echo escape($row["email"]); ?></td>
+        <td><?php echo escape($row["campaign_name"]); ?></td>
+        <td><?php echo escape($row["car_model"]); ?></td>
+        <td><?php echo escape($row["client"]); ?></td>
         <td><?php echo escape($row["age"]); ?></td>
         <td><?php echo escape($row["location"]); ?></td>
         <td><?php echo escape($row["date"]); ?> </td>
