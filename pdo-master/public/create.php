@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
-    
+
     $new_user = array(
       "campaign_name" => $_POST['campaign_name'],
       "car_model"  => $_POST['car_model'],
@@ -29,7 +29,7 @@ if (isset($_POST['submit'])) {
       implode(", ", array_keys($new_user)),
       ":" . implode(", :", array_keys($new_user))
     );
-    
+
     $statement = $connection->prepare($sql);
     $statement->execute($new_user);
   } catch(PDOException $error) {
@@ -51,8 +51,6 @@ if (isset($_POST['submit'])) {
     <input type="text" name="campaign_name" id="campaign_name">
     <label for="car_model">Car Model</label>
     <input type="text" name="car_model" id="car_model">
-    <label for="client">Client</label>
-    <input type="text" name="client" id="client">
     <label for="age">Age</label>
     <input type="text" name="age" id="age">
     <label for="location">Location</label>
