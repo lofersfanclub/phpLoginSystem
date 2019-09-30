@@ -20,18 +20,18 @@ if($response){
     </tr>';
 
     while($row = mysqli_fetch_array($response)){
-        echo '<tr><td align="left">' . 
-        $row['advertiser_id'] . '</td><td align="left">' . 
-        $row['advertiser_name'] . '</td><td align="left">' . 
-        $row['advertiser_profile_image'] . '</td><td align="left">' . 
-        $row['advertiser_created'] . '</td><td align="left">' . 
-        $row['advertiser_updated'] . '</td><td align="left">' . 
-        'campaigns/' . $row['advertiser_id'] . '</td>';
-        
+        echo '<tr><td align="left">' .
+        $row['advertiser_id'] . '</td><td align="left">' .
+        $row['advertiser_name'] . '</td><td align="left">' .
+        $row['advertiser_profile_image'] . '</td><td align="left">' .
+        $row['advertiser_created'] . '</td><td align="left">' .
+        $row['advertiser_updated'] . '</td>' .
+        '<td align="left"><form action="/campaigns.php" method="get"><button name="advertiser_id" type="submit" value='.
+        $row['advertiser_id'] . '>Button</button></td>';
+
         echo '</tr>';
 
     }
-
     echo '</table>';
 } else {
     echo "Couldn't issue database query";
