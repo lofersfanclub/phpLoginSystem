@@ -1,5 +1,6 @@
 
-Welcome <?php echo $_GET["advertiser_id"]; ?><br>
+Advertiser ID: <?php echo $_GET["advertiser_id"]; ?><br>
+Advertiser Name: <?php echo $_GET["advertiser_name"]; ?><br>
 
 <?php
 

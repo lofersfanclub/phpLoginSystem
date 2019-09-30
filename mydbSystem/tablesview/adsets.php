@@ -31,7 +31,7 @@ if($response){
         $row['adset_name'] . '</td><td align="left">' .
         $row['adset_created'] . '</td><td align="left">' .
         $row['adset_updated'] . '</td>' .
-        '<td align="left"><form action="/adsets.php" method="get"><button name="adset_id" type="submit" value='.
+        '<td align="left"><form action="/ads.php" method="get"><button name="adset_id" type="submit" value='.
         $row['adset_id'] . '>Button</button></form></td>';
 
         echo '</tr>';
