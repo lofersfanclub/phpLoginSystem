@@ -2,7 +2,7 @@
 
 /**
  * Use an HTML form to create a new entry in the
- * campaign table.
+ * campaigns table.
  *
  */
 

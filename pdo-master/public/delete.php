@@ -17,7 +17,7 @@ if (isset($_POST["submit"])) {
   
     $id = $_POST["submit"];
 
-    $sql = "DELETE FROM campaign WHERE id = :id";
+    $sql = "DELETE FROM campaigns WHERE id = :id";
 
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
@@ -32,7 +32,7 @@ if (isset($_POST["submit"])) {
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM campaign";
+  $sql = "SELECT * FROM campaigns";
 
   $statement = $connection->prepare($sql);
   $statement->execute();

@@ -2,7 +2,7 @@
 
 /**
  * Use an HTML form to edit an entry in the
- * campaign table.
+ * campaigns table.
  *
  */
 
@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM campaign WHERE id = :id";
+    $sql = "SELECT * FROM campaigns WHERE id = :id";
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();

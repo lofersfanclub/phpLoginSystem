@@ -10,7 +10,7 @@ require "../common.php";
 try {
   $connection = new PDO($dsn, $username, $password, $options);
 
-  $sql = "SELECT * FROM campaign";
+  $sql = "SELECT * FROM campaigns";
 
   $statement = $connection->prepare($sql);
   $statement->execute();
