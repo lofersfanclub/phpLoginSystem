@@ -36,14 +36,14 @@ if($response){
         $row['campaign_updated'] . '</td>' .
         '<td align="left">
         <form action="/adsets.php" method="get">
-        <input type="hidden" name="campaign_name" value="'. 
+        <input type="hidden" name="campaign_name" value="'.
         $row['campaign_name'] .'"/>
         <button name="campaign_id" type="submit" value='.
-        $row['campaign_id'] . 
+        $row['campaign_id'] .
         '>View Adsets</button>
         </form>
         </td>';
-
+        
         echo '</tr>';
 
     }
