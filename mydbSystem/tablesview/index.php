@@ -28,10 +28,13 @@ if($response){
         $row['advertiser_updated'] . '</td>' .
         '<td align="left">
         <form action="/campaigns.php" method="get">
-        <input type="hidden" name="advertiser_name" value="'. $row['advertiser_name'] .'"/>
+        <input type="hidden" name="advertiser_name" value="'. 
+        $row['advertiser_name'] .'"/>
         <button name="advertiser_id" type="submit" value='.
-        $row['advertiser_id'] . '>Button</button>
-        </form></td>';
+        $row['advertiser_id'] . 
+        '>View Campaigns</button>
+        </form>
+        </td>';
 
         echo '</tr>';
 

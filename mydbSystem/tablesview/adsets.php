@@ -32,7 +32,7 @@ if($response){
         $row['adset_created'] . '</td><td align="left">' .
         $row['adset_updated'] . '</td>' .
         '<td align="left"><form action="/ads.php" method="get"><button name="adset_id" type="submit" value='.
-        $row['adset_id'] . '>Button</button></form></td>';
+        $row['adset_id'] . '>View Ads</button></form></td>';
 
         echo '</tr>';
 
