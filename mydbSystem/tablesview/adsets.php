@@ -46,6 +46,7 @@ if($response){
 
     }
     echo '</table>';
+
 } else {
     echo "Couldn't issue database query";
 

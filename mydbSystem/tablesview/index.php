@@ -1,5 +1,6 @@
 <?php
 
+// populate table
 require_once('../mysqli_connect.php');
 
 $query = "SELECT advertiser_id, advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated FROM advertisers";
@@ -30,9 +31,11 @@ if($response){
         <form action="/campaigns.php" method="get">
         <input type="hidden" name="advertiser_name" value="'. 
         $row['advertiser_name'] .'"/>
-        <button name="advertiser_id" type="submit" value='.
-        $row['advertiser_id'] . 
-        '>View Campaigns</button>
+        <button name="advertiser_id" 
+        type="submit" 
+        value='. $row['advertiser_id'] . '>
+        View Campaigns
+        </button>
         </form>
         </td>';
 
@@ -40,6 +43,7 @@ if($response){
 
     }
     echo '</table>';
+
 } else {
     echo "Couldn't issue database query";
 
@@ -47,5 +51,7 @@ if($response){
 }
 
 mysqli_close();
+
+
 
 ?>
