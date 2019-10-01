@@ -1,5 +1,6 @@
 
-Welcome <?php echo $_GET["campaign_id"]; ?><br>
+Campaign ID: <?php echo $_GET["campaign_id"]; ?><br>
+Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
 
 <?php
 
@@ -31,8 +32,15 @@ if($response){
         $row['adset_name'] . '</td><td align="left">' .
         $row['adset_created'] . '</td><td align="left">' .
         $row['adset_updated'] . '</td>' .
-        '<td align="left"><form action="/ads.php" method="get"><button name="adset_id" type="submit" value='.
-        $row['adset_id'] . '>View Ads</button></form></td>';
+        '<td align="left">
+        <form action="/ads.php" method="get">
+        <input type="hidden" name="adset_name" value="'. 
+        $row['adset_name'] .'"/>
+        <button name="adset_id" type="submit" value='.
+        $row['adset_id'] . 
+        '>View Ads</button>
+        </form>
+        </td>';
 
         echo '</tr>';
 

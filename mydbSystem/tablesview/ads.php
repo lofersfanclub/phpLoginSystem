@@ -1,5 +1,6 @@
 
-Welcome <?php echo $_GET["adset_id"]; ?><br>
+Adset ID: <?php echo $_GET["adset_id"]; ?><br>
+Adset Name: <?php echo $_GET["adset_name"]; ?><br>
 
 <?php
 
