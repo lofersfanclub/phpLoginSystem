@@ -56,3 +56,8 @@ if($response){
 mysqli_close();
 
 ?>
+
+<form action="/campaigns.php">
+<button>
+back
+</button>

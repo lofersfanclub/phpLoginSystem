@@ -1,9 +1,7 @@
 <html>
 <body>
 
-
-
-
+<h1>ADVERTISERS</h1>
 
 <table align="left" cellspacing="5" cellpadding="8">
     <tr>
@@ -64,7 +62,7 @@ if($response){
         </form>
         </td>' .
         '<td align="left">
-        <form action="/editAdvertiser.php" method="get">
+        <form action="includes/edit_advertiser.php" method="get">
         <button name="advertiser_id"
         type="submit"
         value='. $row['advertiser_id'] . '>

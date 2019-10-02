@@ -1,3 +1,4 @@
+<h1>CAMPAIGNS</h1>
 
 Advertiser ID: <?php echo $_GET["advertiser_id"]; ?><br>
 Advertiser Name: <?php echo $_GET["advertiser_name"]; ?><br>
@@ -15,7 +16,7 @@ $response = @mysqli_query($dbc, $query);
 if($response){
 
     echo '<table align="left" cellspacing="5" cellpadding="8">
-
+  
     <tr>
     <td align="left"><b>Advertiser ID</b></td>
     <td align="left"><b>Campaign ID</b></td>
@@ -48,6 +49,7 @@ if($response){
 
     }
     echo '</table>';
+
 } else {
     echo "Couldn't issue database query";
 
@@ -57,3 +59,8 @@ if($response){
 mysqli_close();
 
 ?>
+
+<form action="/index.php">
+<button>
+back
+</button>
