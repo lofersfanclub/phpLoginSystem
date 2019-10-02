@@ -25,7 +25,7 @@
 // populate table
 require_once('../mysqli_connect.php');
 
-$query = "SELECT advertiser_id, advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated FROM advertisers";
+$query = "SELECT advertiser_id, advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated FROM advertisers ORDER BY UNIX_TIMESTAMP(advertiser_updated)";
 
 $response = @mysqli_query($dbc, $query);
 
@@ -83,7 +83,6 @@ if($response){
 }
 
 mysqli_close();
-
 
 
 ?>

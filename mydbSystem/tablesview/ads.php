@@ -1,3 +1,4 @@
+<h1>ADS</h1>
 
 Adset ID: <?php echo $_GET["adset_id"]; ?><br>
 Adset Name: <?php echo $_GET["adset_name"]; ?><br>
