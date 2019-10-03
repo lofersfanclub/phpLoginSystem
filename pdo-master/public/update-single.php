@@ -2,7 +2,7 @@
 
 /**
  * Use an HTML form to edit an entry in the
- * users table.
+ * campaigns table.
  *
  */
 
@@ -17,19 +17,19 @@ if (isset($_POST['submit'])) {
 
     $user =[
       "id"        => $_POST['id'],
-      "firstname" => $_POST['firstname'],
-      "lastname"  => $_POST['lastname'],
-      "email"     => $_POST['email'],
+      "campaign_name" => $_POST['campaign_name'],
+      "car_model"  => $_POST['car_model'],
+      "client"     => $_POST['client'],
       "age"       => $_POST['age'],
       "location"  => $_POST['location'],
       "date"      => $_POST['date']
     ];
 
-    $sql = "UPDATE users 
+    $sql = "UPDATE campaign 
             SET id = :id, 
-              firstname = :firstname, 
-              lastname = :lastname, 
-              email = :email, 
+              campaign_name = :campaign_name, 
+              car_model = :car_model, 
+              client = :client, 
               age = :age, 
               location = :location, 
               date = :date 
@@ -47,7 +47,7 @@ if (isset($_GET['id'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     $id = $_GET['id'];
 
-    $sql = "SELECT * FROM users WHERE id = :id";
+    $sql = "SELECT * FROM campaigns WHERE id = :id";
     $statement = $connection->prepare($sql);
     $statement->bindValue(':id', $id);
     $statement->execute();
@@ -65,7 +65,7 @@ if (isset($_GET['id'])) {
 <?php require "templates/header.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['firstname']); ?> successfully updated.</blockquote>
+	<blockquote><?php echo escape($_POST['campaign_name']); ?> successfully updated.</blockquote>
 <?php endif; ?>
 
 <h2>Edit a user</h2>
