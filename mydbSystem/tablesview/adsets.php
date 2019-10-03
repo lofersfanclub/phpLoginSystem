@@ -6,6 +6,7 @@ Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
 <?php
 
 $campaign_id = $_GET["campaign_id"];
+$campaign_name = $_GET["campaign_name"];
 
 require_once('../mysqli_connect.php');
 
@@ -56,9 +57,13 @@ if($response){
 
 mysqli_close();
 
+echo '<form action="/campaigns.php" metode="POST">
+    <input type="hidden" name="campaign_id" value="'. 
+    $campaign_id .'"/>
+    <input type="hidden" name="campaign_id" value="'. 
+    $campaign_name .'"/>
+    <button>back</button>
+</form>';
+
 ?>
 
-<form action="/campaigns.php">
-<button>
-back
-</button>
