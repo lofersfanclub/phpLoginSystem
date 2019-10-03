@@ -2,6 +2,8 @@
 
 $adver_id = $_GET["advertiser_id"];
 
+echo 'Advertiser is: ' . $adver_id;
+
 // populate table
 require_once('../../mysqli_connect.php');
 
@@ -19,6 +21,7 @@ if($response){
     <td align="left"><b>Advertiser Created</b></td>
     <td align="left"><b>Advertiser Updated</b></td>
     <td align="left"><b>Update Advertiser</b></td>
+    <td align="left"><b>Delete Advertiser</b></td>
     <td align="left"><b>Back</b></td>
     </tr>';
 
@@ -38,13 +41,23 @@ if($response){
             $row['advertiser_created'] . '
         </td>
         <td align="left">' .
-        $row['advertiser_updated'] . '</td>' .
+            $row['advertiser_updated'] . '
+        </td>' .
         '<td align="left">
+        <button type="submit">Update Advertiser</button>
+        </form>   
+        </td>' .
+
+        '<td align="left">
+        <form action="delete_advertiser.php" method="POST">
+        <input type="hidden" name="advertiser_id" value="'.
+        $adver_id .'"/>
         <button type="submit">
-        Update Advertiser
+        Delete Advertiser
         </button>
         </form>
-        </td>' .
+        </td>';
+
         '<td align="left">
         <form action="/index.php" method="get">
         <button>
