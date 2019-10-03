@@ -8,5 +8,6 @@ $a = preg_grep('~\.(jpeg|jpg|php)$~', scandir($dir));
 $b = scandir($dir,1);
 
 print_r($a);
+// Sort in kind of cool
 print_r($b);
 ?>
