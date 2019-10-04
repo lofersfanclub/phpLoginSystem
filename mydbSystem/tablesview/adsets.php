@@ -20,6 +20,21 @@ if($_SESSION["adset_id"] == !null){
 Campaign ID: <?php echo $_GET["campaign_id"]; ?><br>
 Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
 
+<table align="left" cellspacing="5" cellpadding="8">
+    <tr>
+        <td align="left" style="opacity:0"><b>Adset ID</b></td>
+        <td align="left"><b>Adset Name</b></td>
+        <td align="left"><b>Add New Adset</b></td>
+    </tr>
+    <tr>
+        <form action="includes/new_adset.php" method="POST">
+            <td align="left"></td>
+            <td align="left"><b><input type="text" name="adset_name" placeholder="New Adset Name"></input></b></td>
+            <td align="left"><b><button type="submit" name="submit">New Adset</button></b></td>
+        </form>
+    </tr>
+</table>
+
 <?php
 
 $campaign_id =     $_SESSION["campaign_id"];
