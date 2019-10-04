@@ -59,6 +59,7 @@ if($response){
     <td align="left"><b>Adset Created</b></td>
     <td align="left"><b>Adset Updated</b></td>
     <td align="left"><b>Ads</b></td>
+    <td align="left"><b>Edit Adset</b></td>
     </tr>';
 
     while($row = mysqli_fetch_array($response)){
@@ -75,6 +76,15 @@ if($response){
         <button name="adset_id" type="submit" value='.
         $row['adset_id'] . 
         '>View Ads</button>
+        </form>
+        </td>' .
+        '<td align="left">
+        <form action="includes/edit_adset.php" method="get">
+        <button name="adset_id"
+        type="submit"
+        value='. $row['adset_id'] . '>
+        Edit Adset
+        </button>
         </form>
         </td>';
 

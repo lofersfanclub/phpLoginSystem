@@ -1,10 +1,10 @@
 <?php
 
-$adset_id = $_POST["adset_id"];
+$ad_id = $_POST["ad_id"];
 
 require_once('../../mysqli_connect.php');
 
-$sql =  "DELETE FROM adsets WHERE adset_id='$adset_id'";
+$sql =  "DELETE FROM ads WHERE ad_id='$ad_id'";
 
 $response = @mysqli_query($dbc, $sql);
 
@@ -18,6 +18,6 @@ if($response){
 
 mysqli_close();
 
-header("Location: ../adsets.php");
+header("Location: ../ads.php");
 
 ?>

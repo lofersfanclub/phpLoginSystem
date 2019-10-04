@@ -19,6 +19,6 @@ if($response){
 
 mysqli_close();
 
-header("Location: ../index.php");
+header("Location: ../adsets.php");
 
 ?>

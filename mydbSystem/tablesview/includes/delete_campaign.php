@@ -18,6 +18,6 @@ if($response){
 
 mysqli_close();
 
-header("Location: ../advertisers.php");
+header("Location: ../campaigns.php");
 
 ?>
