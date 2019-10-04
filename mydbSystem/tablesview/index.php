@@ -16,6 +16,7 @@ session_start();
         <td align="left"><b>Advertiser Name</b></td>
         <td align="left"><b>Advertiser Image</b></td>
         <td align="left"><b>Add New Advertiser</b></td>
+        <td align="left"><b>Upload New Image</b></td>
     </tr>
     <tr>
         <form action="includes/new_advertiser.php" method="POST">
@@ -24,6 +25,13 @@ session_start();
             <td align="left"><b><input type="text" name="advertiser_profile_image" placeholder="http://dummyimage.com/400x400.jpg/ff4444/ffffff" style="width:340px"></input></b></td>
             <td align="left"><b><button type="submit" name="submit">New Advertiser</button></b></td>
         </form>
+        <td align="left">
+        <form action="upload_advertiser_image.php" method="post" enctype="multipart/form-data">
+            Select image to upload:
+            <input type="file" name="fileToUpload" id="fileToUpload">
+            <input type="submit" value="Upload Image" name="submit">
+        </form>
+        </td>
     </tr>
 </table>
 
