@@ -1,11 +1,32 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <h1>CAMPAIGNS</h1>
+
+
 
 Advertiser ID: <?php echo $_GET["advertiser_id"]; ?><br>
 Advertiser Name: <?php echo $_GET["advertiser_name"]; ?><br>
 
 <?php
 
-$adver_id = $_GET["advertiser_id"];
+if($_SESSION["advertiser_id"] == null){
+    $_SESSION["advertiser_id"] = $_GET["advertiser_id"];
+    $_SESSION["advertiser_name"] = $_GET["advertiser_name"];
+}
+
+if($_SESSION["campaign_id"] == !null){
+    $_SESSION["campaign_id"] = null;
+    $_SESSION["campaign_name"] = null;
+}
+
+
+
+$adver_id = $_SESSION["advertiser_id"];
+
+print_r($_SESSION);
 
 require_once('../mysqli_connect.php');
 

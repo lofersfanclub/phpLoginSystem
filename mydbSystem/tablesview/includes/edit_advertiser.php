@@ -56,10 +56,9 @@ if($response){
         Delete Advertiser
         </button>
         </form>
-        </td>';
-
-        '<td align="left">
-        <form action="/index.php" method="get">
+        </td>
+        <td align="left">
+        <form action="/index.php">
         <button>
         cancel
         </button>

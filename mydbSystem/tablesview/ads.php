@@ -49,4 +49,12 @@ if($response){
 
 mysqli_close();
 
+echo '<form action="/adsets.php" metode="POST">
+    <input type="hidden" name="campaign_id" value="'. 
+    $campaign_id .'"/>
+    <input type="hidden" name="campaign_id" value="'. 
+    $campaign_name .'"/>
+    <button>back</button>
+</form>';
+
 ?>

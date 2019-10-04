@@ -1,3 +1,15 @@
+<?php
+// Start the session
+session_start();
+
+if($_SESSION["campaign_id"] == null){
+    $_SESSION["campaign_id"] = $_GET["campaign_id"];
+    $_SESSION["campaign_name"] = $_GET["campaign_name"];
+}
+
+?>
+
+
 <h1>ADSETS</h1>
 
 Campaign ID: <?php echo $_GET["campaign_id"]; ?><br>
@@ -5,8 +17,10 @@ Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
 
 <?php
 
-$campaign_id = $_GET["campaign_id"];
-$campaign_name = $_GET["campaign_name"];
+$campaign_id =     $_SESSION["campaign_id"];
+$campaign_name = $_SESSION["campaign_name"];
+
+print_r($_SESSION);
 
 require_once('../mysqli_connect.php');
 

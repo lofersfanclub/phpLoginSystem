@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+    $_SESSION["advertiser_id"] = null;
+    $_SESSION["advertiser_name"] = null;
+?>
+
 <html>
 <body>
 
