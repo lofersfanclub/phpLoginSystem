@@ -1,3 +1,19 @@
+<?php
+// Start the session
+session_start();
+
+if($_SESSION["adset_id"] == null){
+    $_SESSION["adset_id"] = $_GET["adset_id"];
+    $_SESSION["adset_name"] = $_GET["adset_name"];
+}
+
+if($_SESSION["ad_id"] == !null){
+    $_SESSION["ad_id"] = null;
+    $_SESSION["ad_name"] = null;
+}
+
+?>
+
 <h1>ADS</h1>
 
 Adset ID: <?php echo $_GET["adset_id"]; ?><br>
@@ -12,6 +28,8 @@ require_once('../mysqli_connect.php');
 $query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id";
 
 $response = @mysqli_query($dbc, $query);
+
+print_r($_SESSION);
 
 if($response){
 

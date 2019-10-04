@@ -7,6 +7,11 @@ if($_SESSION["campaign_id"] == null){
     $_SESSION["campaign_name"] = $_GET["campaign_name"];
 }
 
+if($_SESSION["adset_id"] == !null){
+    $_SESSION["adset_id"] = null;
+    $_SESSION["adset_name"] = null;
+}
+
 ?>
 
 

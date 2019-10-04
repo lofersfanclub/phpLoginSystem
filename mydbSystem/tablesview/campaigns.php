@@ -1,16 +1,6 @@
 <?php
 // Start the session
 session_start();
-?>
-
-<h1>CAMPAIGNS</h1>
-
-
-
-Advertiser ID: <?php echo $_GET["advertiser_id"]; ?><br>
-Advertiser Name: <?php echo $_GET["advertiser_name"]; ?><br>
-
-<?php
 
 if($_SESSION["advertiser_id"] == null){
     $_SESSION["advertiser_id"] = $_GET["advertiser_id"];
@@ -22,7 +12,31 @@ if($_SESSION["campaign_id"] == !null){
     $_SESSION["campaign_name"] = null;
 }
 
+?>
 
+<h1>CAMPAIGNS</h1>
+
+Advertiser ID: <?php echo $_SESSION["advertiser_id"] ; ?><br>
+Advertiser Name: <?php echo $_SESSION["advertiser_name"]; ?><br>
+
+<table align="left" cellspacing="5" cellpadding="8">
+    <tr>
+        <td align="left" style="opacity:0"><b>Campaign ID</b></td>
+        <td align="left"><b>Campaign Name</b></td>
+        <td align="left"><b>Campaign Image</b></td>
+        <td align="left"><b>Add New Campaign</b></td>
+    </tr>
+    <tr>
+        <form action="includes/new_campaign.php" method="POST">
+            <td align="left"></td>
+            <td align="left"><b><input type="text" name="campaign_name" placeholder="New Campaign Name"></input></b></td>
+            <td align="left"><b><input type="text" name="campaign_profile_image" placeholder="http://dummyimage.com/400x400.jpg/ff4444/ffffff" style="width:340px"></input></b></td>
+            <td align="left"><b><button type="submit" name="submit">New Campaign</button></b></td>
+        </form>
+    </tr>
+</table>
+
+<?php
 
 $adver_id = $_SESSION["advertiser_id"];
 
