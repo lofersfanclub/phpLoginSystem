@@ -1,9 +1,12 @@
 <?php
-$advetiser = 'toyota';
 
-mkdir('uploads/' . $advetiser, 0777, true);
+require_once('../mysqli_connect.php');
 
-$target_dir = "uploads/" . $advetiser . '/';
+$advertiser_name = $_POST['advertiser_name'];
+
+mkdir('profile_img/' . $advertiser_name, 0777, true);
+
+$target_dir = "profile_img/" . $advertiser_name . '/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
@@ -41,7 +44,25 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        echo "Advertiser name is: " . $advertiser_name . ". Profile image path is: " . $target_dir . $target_file;
+        
+        $advertiser_profile_image_path = $target_dir . $target_file;
+        
+        $sql = "INSERT INTO advertisers (advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated) VALUES ('$advertiser_name', '$advertiser_profile_image_path', NOW(), NOW())";
+
+        $response = @mysqli_query($dbc, $sql);
+
+        if($response){
+            
+        } else {
+            echo "Couldn't issue database query";
+
+            echo mysqli_error($dbc);
+        }
+
+        mysqli_close();
         header("Location: ../index.php");
+
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
