@@ -48,15 +48,15 @@ if ($uploadOk == 0) {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
         echo "Advertiser name is: " . $advertiser_name . ". Profile image path is: " . $target_dir . $target_file;
-        
+
         $advertiser_profile_image_path = $target_dir . $target_file;
-        
+
         $sql = "INSERT INTO advertisers (advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated) VALUES ('$advertiser_name', '$advertiser_profile_image_path', NOW(), NOW())";
 
         $response = @mysqli_query($dbc, $sql);
 
         if($response){
-            
+
         } else {
             echo "Couldn't issue database query";
 
