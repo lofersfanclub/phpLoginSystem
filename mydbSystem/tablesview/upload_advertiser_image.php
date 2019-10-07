@@ -4,10 +4,13 @@ require_once('../mysqli_connect.php');
 
 $advertiser_name = $_POST['advertiser_name'];
 
-mkdir('profile_img/' . $advertiser_name, 0777, true);
+$advertiser_name_no_wp = str_replace(" ","_",$advertiser_name);
 
-$target_dir = "profile_img/" . $advertiser_name . '/';
-$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+mkdir('profile_img/' . $advertiser_name_no_wp, 0777, true);
+
+$target_dir = "profile_img/" . $advertiser_name_no_wp . '/';
+$target_file_wp = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$target_file = str_replace(" ","_",$target_file_wp);
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
