@@ -30,7 +30,7 @@ session_start();
         <td align="left"></td>
         <td align="left">
         <form action="/includes/new_advertiser.php" method="post" enctype="multipart/form-data">
-            <input type="text" name="advertiser_name" placeholder="New Advertiser Name"></input>
+            <input type="text" name="advertiser_name" placeholder="New Advertiser"></input>
         </td>
         <td align="left">
             <input type="file" name="fileToUpload" id="fileToUpload">
