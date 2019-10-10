@@ -17,7 +17,8 @@ if($response){
 
     <tr>
     <td align="left"><b>Advertiser Name</b></td>
-    <td align="left"><b>Advertiser Image</b></td>
+    <td align="left"><b>Image Path</b></td>
+    <td align="left"><b>Edit Image</b></td>
     <td align="left"><b>Advertiser Created</b></td>
     <td align="left"><b>Advertiser Updated</b></td>
     <td align="left"><b>Update Advertiser</b></td>
@@ -26,16 +27,18 @@ if($response){
     </tr>';
 
     while($row = mysqli_fetch_array($response)){
-    echo '<form action="update_advertiser.php" method="POST">
+    echo '<form action="update_advertiser.php" method="POST" enctype="multipart/form-data">
           <input type="hidden" name="advertiser_id" value="'.
-            $row['advertiser_id'] .'"/>
+            $adver_id .'"/>
         <tr><td align="left">
             <input type="text" name="advertiser_name" value="'.
             $row['advertiser_name'] .'"/>
         </td>
+        <td align="left">' .
+            $row['advertiser_profile_image'] . '
+        </td>
         <td align="left">
-            <input type="text" name="advertiser_profile_image" value="'.
-            $row['advertiser_profile_image'] .'"/>
+            <input type="file" name="fileToUpload" id="fileToUpload"/>
         </td>
         <td align="left">' .
             $row['advertiser_created'] . '
@@ -44,8 +47,8 @@ if($response){
             $row['advertiser_updated'] . '
         </td>' .
         '<td align="left">
-        <button type="submit">Update Advertiser</button>
-        </form>   
+        <input type="submit" value="New Advertiser" name="submit">
+        </form>
         </td>' .
 
         '<td align="left">
