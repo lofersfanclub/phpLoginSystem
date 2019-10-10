@@ -24,6 +24,7 @@ Adset Name: <?php echo $_SESSION["adset_name"]; ?><br>
         <td align="left"><b>Ad Width</b></td>
         <td align="left"><b>Ad Height</b></td>
         <td align="left"><b>Ad Type</b></td>
+        <td align="left"><b>Upload Ad file</b></td>
         <td align="left"><b>Add New Ad</b></td>
     </tr>
     <tr>
@@ -32,7 +33,8 @@ Adset Name: <?php echo $_SESSION["adset_name"]; ?><br>
             <td align="left"><b><input type="text" name="ad_width" placeholder="New Ad Width"></input></b></td>
             <td align="left"><b><input type="text" name="ad_height" placeholder="New Ad Height"></input></b></td>
             <td align="left"><b><input type="text" name="ad_type" placeholder="New Ad Type"></input></b></td>
-            <td align="left"><b><button type="submit" name="submit">New Ad</button></b></td>
+            <td align="left"><b><input type="file" name="fileToUpload" id="fileToUpload"></b></td>
+            <td align="left"><b><input type="submit" name="New Ad"></input></b></td>
         </form>
     </tr>
 </table>
@@ -46,8 +48,6 @@ require_once('../mysqli_connect.php');
 $query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id ORDER BY UNIX_TIMESTAMP(ad_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
-
-print_r($_SESSION);
 
 if($response){
 

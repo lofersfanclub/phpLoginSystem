@@ -47,7 +47,7 @@ if($response){
             $row['advertiser_updated'] . '
         </td>' .
         '<td align="left">
-        <input type="submit" value="New Advertiser" name="submit">
+        <input type="submit" value="Update Advertiser" name="submit">
         </form>
         </td>' .
 
