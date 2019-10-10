@@ -46,7 +46,7 @@ session_start();
 // populate table
 require_once('../mysqli_connect.php');
 
-$query = "SELECT advertiser_id, advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated FROM advertisers ORDER BY UNIX_TIMESTAMP(advertiser_updated)";
+$query = "SELECT advertiser_id, advertiser_name, advertiser_profile_image, advertiser_created, advertiser_updated FROM advertisers ORDER BY UNIX_TIMESTAMP(advertiser_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
 

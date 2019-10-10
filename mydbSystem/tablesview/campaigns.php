@@ -37,7 +37,7 @@ Advertiser Name: <?php echo $_SESSION["advertiser_name"]; ?><br>
     <tr>
         <td align="left"></td>
         <td align="left">
-        <form action="/includes/new_advertiser.php" method="post" enctype="multipart/form-data">
+        <form action="/includes/new_campaign.php" method="post" enctype="multipart/form-data">
             <input type="text" name="campaign_name" placeholder="New Campaign Name"></input>
         </td>
         <td align="left">
@@ -58,7 +58,7 @@ print_r($_SESSION);
 
 require_once('../mysqli_connect.php');
 
-$query = "SELECT campaign_id, campaign_name, campaign_profile_image, campaign_created, campaign_updated, advertiser_id FROM campaigns WHERE advertiser_id=$adver_id";
+$query = "SELECT campaign_id, campaign_name, campaign_profile_image, campaign_created, campaign_updated, advertiser_id FROM campaigns WHERE advertiser_id=$adver_id ORDER BY UNIX_TIMESTAMP(campaign_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
 

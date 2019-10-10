@@ -3,6 +3,7 @@
 session_start();
 
 $advertiser_id = $_SESSION["advertiser_id"];
+$advertiser_name = $_SESSION["advertiser_name"];
 
 require_once('../../mysqli_connect.php');
 
@@ -10,9 +11,10 @@ $campaign_name = $_POST['campaign_name'];
 
 $campaign_name_no_wp = str_replace(" ","_",$campaign_name);
 
-mkdir('profile_img/' . $campaign_name_no_wp, 0777, true);
+mkdir('profile_img/'. $advertiser_name . '/' . $campaign_name_no_wp, 0777, true);
 
-$target_dir = "profile_img/" . $campaign_name_no_wp . '/';
+$target_dir = "profile_img/". $advertiser_name . '/' . $campaign_name_no_wp . '/';
+echo $target_dir;
 $target_file_wp = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_file = str_replace(" ","_",$target_file_wp);
 $uploadOk = 1;
@@ -51,11 +53,11 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        echo "campaign name is: " . $campaign_name . ". Profile image path is: " . $target_dir . $target_file;
+        echo "campaign name is: " . $campaign_name . ". Profile image path is: ". $target_file;
 
-        $campaign_profile_image_path = $target_dir . $target_file;
+        $campaign_profile_image_path = $target_file;
 
-$sql = "INSERT INTO campaigns (campaign_name, campaign_profile_image, campaign_created, campaign_updated, advertiser_id) VALUES ('$campaign_name', '$campaign_profile_image', NOW(), NOW(), '$advertiser_id')";
+$sql = "INSERT INTO campaigns (campaign_name, campaign_profile_image, campaign_created, campaign_updated, advertiser_id) VALUES ('$campaign_name', '$campaign_profile_image_path', NOW(), NOW(), '$advertiser_id')";
 
         $response = @mysqli_query($dbc, $sql);
 
@@ -68,7 +70,7 @@ $sql = "INSERT INTO campaigns (campaign_name, campaign_profile_image, campaign_c
         }
 
         mysqli_close();
-        header("Location: ../index.php");
+        header("Location: ../campaigns.php");
 
     } else {
         echo "Sorry, there was an error uploading your file.";
