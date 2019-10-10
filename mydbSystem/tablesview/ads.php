@@ -24,17 +24,19 @@ Adset Name: <?php echo $_SESSION["adset_name"]; ?><br>
         <td align="left"><b>Ad Width</b></td>
         <td align="left"><b>Ad Height</b></td>
         <td align="left"><b>Ad Type</b></td>
+        <td align="left"><b>Ad Path</b></td>
         <td align="left"><b>Upload Ad file</b></td>
         <td align="left"><b>Add New Ad</b></td>
     </tr>
     <tr>
-        <form action="includes/new_ad.php" method="POST">
+        <form action="includes/new_ad.php"  method="post" enctype="multipart/form-data">
             <td align="left"></td>
             <td align="left"><b><input type="text" name="ad_width" placeholder="New Ad Width"></input></b></td>
             <td align="left"><b><input type="text" name="ad_height" placeholder="New Ad Height"></input></b></td>
             <td align="left"><b><input type="text" name="ad_type" placeholder="New Ad Type"></input></b></td>
+            <td align="left"><b><p type="text" name="ad_path" placeholder="New Ad Path"></p></b></td>
             <td align="left"><b><input type="file" name="fileToUpload" id="fileToUpload"></b></td>
-            <td align="left"><b><input type="submit" name="New Ad"></input></b></td>
+            <td align="left"><b><input type="submit" name="submit"></input></b></td>
         </form>
     </tr>
 </table>
@@ -45,7 +47,7 @@ $adset_id = $_SESSION["adset_id"];
 
 require_once('../mysqli_connect.php');
 
-$query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id ORDER BY UNIX_TIMESTAMP(ad_updated) DESC";
+$query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_path, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id ORDER BY UNIX_TIMESTAMP(ad_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
 
@@ -59,6 +61,7 @@ if($response){
     <td align="left"><b>Ad Width</b></td>
     <td align="left"><b>Ad Height</b></td>
     <td align="left"><b>Ad Type</b></td>
+    <td align="left"><b>Ad Path</b></td>
     <td align="left"><b>Ad Created</b></td>
     <td align="left"><b>Ad Updated</b></td>
     <td align="left"><b>Edit Ad</b></td>
@@ -71,6 +74,7 @@ if($response){
         $row['ad_width'] . '</td><td align="left">' .
         $row['ad_height'] . '</td><td align="left">' .
         $row['ad_type'] . '</td><td align="left">' .
+        $row['ad_path'] . '</td><td align="left">' .
         $row['ad_created'] . '</td><td align="left">' .
         $row['ad_updated'] . '</td>' .
         '<td align="left">
