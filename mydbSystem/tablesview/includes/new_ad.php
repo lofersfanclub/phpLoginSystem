@@ -36,9 +36,6 @@ $imageFileType = strtolower(pathinfo($file_extenstion,PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
 
-    $file = $_FILES['file'];
-    $fileName = $_FILES['file']['name'];
-
     echo '<pre>';
     var_dump($fileName);
     echo '</pre>';
