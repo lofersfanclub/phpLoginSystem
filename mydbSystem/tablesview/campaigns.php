@@ -26,13 +26,27 @@ Advertiser Name: <?php echo $_SESSION["advertiser_name"]; ?><br>
         <td align="left"><b>Campaign Image</b></td>
         <td align="left"><b>Add New Campaign</b></td>
     </tr>
-    <tr>
-        <form action="includes/new_campaign.php" method="POST">
+    <!-- <tr>
+        <form action="includes/new_advertiser.php" method="POST">
             <td align="left"></td>
-            <td align="left"><b><input type="text" name="campaign_name" placeholder="New Campaign Name"></input></b></td>
-            <td align="left"><b><input type="text" name="campaign_profile_image" placeholder="http://dummyimage.com/400x400.jpg/ff4444/ffffff" style="width:340px"></input></b></td>
-            <td align="left"><b><button type="submit" name="submit">New Campaign</button></b></td>
+            <td align="left"><b><input type="text" name="advertiser_name" placeholder="New Advertiser Name"></input></b></td>
+            <td align="left"><b><input type="text" name="advertiser_profile_image" placeholder="http://dummyimage.com/400x400.jpg/ff4444/ffffff" style="width:340px"></input></b></td>
+            <td align="left"><b><button type="submit" name="submit">New Advertiser</button></b></td>
         </form>
+    </tr> -->
+    <tr>
+        <td align="left"></td>
+        <td align="left">
+        <form action="/includes/new_advertiser.php" method="post" enctype="multipart/form-data">
+            <input type="text" name="campaign_name" placeholder="New Campaign Name"></input>
+        </td>
+        <td align="left">
+            <input type="file" name="fileToUpload" id="fileToUpload">
+        </td>
+        <td align="left">
+            <input type="submit" value="New Campaign" name="submit">
+        </form>
+        </td>
     </tr>
 </table>
 
