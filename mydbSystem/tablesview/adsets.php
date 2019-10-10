@@ -24,6 +24,8 @@ if($_SESSION["adset_id"] == !null){
 Campaign ID: <?php echo $_GET["campaign_id"]; ?><br>
 Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
 
+<h3>CREATE ADSETS</h3>
+
 <table align="left" cellspacing="5" cellpadding="8" border="1">
     <tr>
         <td align="left"><b>Adset Name</b></td>
@@ -37,6 +39,8 @@ Campaign Name: <?php echo $_GET["campaign_name"]; ?><br>
     </tr>
 </table>
 
+<h3>ADSETS LIST</h3>
+
 <?php
 
 $campaign_id =     $_SESSION["campaign_id"];
@@ -44,7 +48,7 @@ $campaign_name = $_SESSION["campaign_name"];
 
 require_once('../mysqli_connect.php');
 
-$query = "SELECT adset_id, adset_name, adset_created, adset_updated, campaign_id FROM adsets WHERE campaign_id=$campaign_id";
+$query = "SELECT adset_id, adset_name, adset_created, adset_updated, campaign_id FROM adsets WHERE campaign_id=$campaign_id ORDER BY UNIX_TIMESTAMP(adset_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
 

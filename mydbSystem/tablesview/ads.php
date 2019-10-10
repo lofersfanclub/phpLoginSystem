@@ -43,7 +43,7 @@ $adset_id = $_SESSION["adset_id"];
 
 require_once('../mysqli_connect.php');
 
-$query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id";
+$query = "SELECT ad_id, ad_width, ad_height, ad_type, ad_created, ad_updated, adset_id FROM ads WHERE adset_id=$adset_id ORDER BY UNIX_TIMESTAMP(ad_updated) DESC";
 
 $response = @mysqli_query($dbc, $query);
 
