@@ -17,14 +17,6 @@ session_start();
         <td align="left"><b>Advertiser Image</b></td>
         <td align="left"><b>Add New Advertiser</b></td>
     </tr>
-    <!-- <tr>
-        <form action="includes/new_advertiser.php" method="POST">
-            <td align="left"></td>
-            <td align="left"><b><input type="text" name="advertiser_name" placeholder="New Advertiser Name"></input></b></td>
-            <td align="left"><b><input type="text" name="advertiser_profile_image" placeholder="http://dummyimage.com/400x400.jpg/ff4444/ffffff" style="width:340px"></input></b></td>
-            <td align="left"><b><button type="submit" name="submit">New Advertiser</button></b></td>
-        </form>
-    </tr> -->
     <tr>
         <td align="left"></td>
         <td align="left">
