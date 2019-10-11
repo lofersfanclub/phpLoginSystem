@@ -18,6 +18,8 @@ if($_SESSION["ad_id"] == !null){
 Adset ID: <?php echo  $_SESSION["adset_id"]; ?><br>
 Adset Name: <?php echo $_SESSION["adset_name"]; ?><br>
 
+<h2>UPLOAD NEW AD</h2>
+
 <table align="left" cellspacing="5" cellpadding="8">
     <tr>
         <td align="left" style="opacity:0"><b>Ad ID</b></td>
@@ -40,6 +42,9 @@ Adset Name: <?php echo $_SESSION["adset_name"]; ?><br>
         </form>
     </tr>
 </table>
+
+
+<h2>LIST OF ADS</h2>
 
 <?php
 
