@@ -24,9 +24,9 @@ $ad_name_no_wp = str_replace(" ","_",$ad_name);
 
 
 
-mkdir('ads/'. $advertiser_id . '/' . $campaign_id . '/' . $ad_name_no_wp, 0777, true);
+mkdir('ads/'. $advertiser_id . '/' . $campaign_id . '/'. $adset_id . '/' . $ad_name_no_wp, 0777, true);
 
-$target_dir = "ads/". $advertiser_id . '/' . $adset_id . '/' . $ad_name_no_wp . '/';
+$target_dir = "ads/". $advertiser_id . '/' . $campaign_id . '/' . $adset_id . '/' . $ad_name_no_wp . '/';
 $target_file_wp = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $target_file = str_replace(" ","_",$target_file_wp);
 $uploadOk = 1;
@@ -37,7 +37,7 @@ $imageFileType = strtolower(pathinfo($file_extenstion,PATHINFO_EXTENSION));
 if(isset($_POST["submit"])) {
 
     echo '<pre>';
-    var_dump($fileName);
+    var_dump($target_file . $file_extenstion);
     echo '</pre>';
 
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -72,12 +72,10 @@ if ($uploadOk == 0) {
 // if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        echo "ad name is: " . $ad_name . ". Profile image path is: ". $target_file;
 
         $ad_profile_image_path = $target_file;
 
-$sql = "INSERT INTO ads (ad_width, ad_height, ad_type, ad_path, ad_created, ad_updated, adset_id) VALUES ('$ad_width', '$ad_height', '$ad_type', '$ad_profile_image_path', NOW(), NOW(), '$adset_id')";
+        $sql = "INSERT INTO ads (ad_width, ad_height, ad_type, ad_path, ad_created, ad_updated, adset_id) VALUES ('$ad_width', '$ad_height', '$ad_type', '$ad_profile_image_path', NOW(), NOW(), '$adset_id')";
 
         $response = @mysqli_query($dbc, $sql);
 

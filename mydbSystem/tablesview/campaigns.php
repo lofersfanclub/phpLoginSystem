@@ -54,8 +54,6 @@ Advertiser Name: <?php echo $_SESSION["advertiser_name"]; ?><br>
 
 $adver_id = $_SESSION["advertiser_id"];
 
-print_r($_SESSION);
-
 require_once('../mysqli_connect.php');
 
 $query = "SELECT campaign_id, campaign_name, campaign_profile_image, campaign_created, campaign_updated, advertiser_id FROM campaigns WHERE advertiser_id=$adver_id ORDER BY UNIX_TIMESTAMP(campaign_updated) DESC";
