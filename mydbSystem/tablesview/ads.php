@@ -13,6 +13,9 @@ if($_SESSION["ad_id"] == !null){
 
 ?>
 
+<a href="ads-view.php">Ads View</a>
+<a href="ads.php">Ads List</a>
+
 <h1>ADS</h1>
 
 Adset ID: <?php echo  $_SESSION["adset_id"]; ?><br>
@@ -96,6 +99,11 @@ if($response){
 
     }
     echo '</table>';
+    
+
+
+
+
 } else {
     echo "Couldn't issue database query";
 
@@ -111,5 +119,7 @@ echo '<form action="/adsets.php" metode="POST">
     $campaign_name .'"/>
     <button>back</button>
 </form>';
+
+
 
 ?>
