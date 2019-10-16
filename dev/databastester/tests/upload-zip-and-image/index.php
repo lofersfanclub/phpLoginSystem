@@ -163,8 +163,6 @@ if($_FILES["zip_file"]["name"]) {
     else{
         $message = "This file is not possible to upload" . var_dump($type); 
     }  
-}
-
 
 ?>
 
