@@ -18,7 +18,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 echo $check;
 // Check if image file is a actual image or fake image
-if(isset($_POST["submit"])) {
+if(isset($_POST["update"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
@@ -48,7 +48,7 @@ if(isset($_POST["submit"])) {
                 echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
                 echo "Advertiser name is: " . $advertiser_name . ". Profile image path is: " . $target_dir . $target_file;
 
-                $advertiser_profile_image_path = $target_dir . $target_file;
+                $advertiser_profile_image_path = $target_file;
 
                 $sql = "UPDATE advertisers SET advertiser_name='$advertiser_name', advertiser_profile_image='$advertiser_profile_image_path', advertiser_updated=NOW() WHERE advertiser_id=$advertiser_id";
 
